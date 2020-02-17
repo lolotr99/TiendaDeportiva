@@ -1,11 +1,16 @@
 <div class="login-page">
-    <div class="form">
-      <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="/login">Sign In</a></p>
-      </form>
+  <div class="row" *ngIf="authError">
+    <div class="col-12 alert alert-danger">
+      {{ authError?.message }}
     </div>
+  </div>
+  <div class=" row form">
+    <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)" class="register-form">
+      <input ngModel #username="ngModel" name="username" type="text" id="username" placeholder="username">
+      <input ngModel #password="ngModel" name="password" type="password" id="password" placeholder="password">
+      <input ngModel #email="ngModel" name="email" type="email" id="email" placeholder="email">
+      <button type="submit">Registrar</button>
+      <p class="message">¿Ya estás registrado? <a href="/login">Entra aquí</a></p>
+    </form>
+  </div>
 </div>

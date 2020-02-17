@@ -9,6 +9,13 @@ import { LoginComponent } from './componentes/login/login.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { PrivadoComponent } from './componentes/privado/privado.component';
 import { RegisterComponent } from './componentes/register/register.component';
+import { environment } from 'src/environments/environment';
+
+import { FormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,11 @@ import { RegisterComponent } from './componentes/register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
