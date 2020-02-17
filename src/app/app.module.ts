@@ -8,6 +8,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { PrivadoComponent } from './componentes/privado/privado.component';
+import { RegisterComponent } from './componentes/register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PrivadoComponent } from './componentes/privado/privado.component';
     NavbarComponent,
     LoginComponent,
     NotFoundComponent,
-    PrivadoComponent
+    PrivadoComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
