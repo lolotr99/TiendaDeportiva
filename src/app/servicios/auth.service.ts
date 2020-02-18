@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { BehaviorSubject } from 'rxjs';
+import * as $ from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -37,11 +38,9 @@ export class AuthService {
   }
 
   createUser(user) {
-    console.log(user);
     this.afAuth.auth.createUserWithEmailAndPassword( user.email, user.password)
       .then( userCredential => {
         this.newUser = user;
-        console.log(userCredential);
         this.insertUserData(userCredential)
           .then(() => {
             this.router.navigate(['/']);
@@ -53,10 +52,10 @@ export class AuthService {
   }
 
   insertUserData(userCredential: firebase.auth.UserCredential) {
+    //recoger sexo del formulario
     return this.db.doc(`Usuarios/${userCredential.user.uid}`).set({
-      username: this.newUser.username,
-      password: this.newUser.password,
       email: this.newUser.email,
+      
     })
   }
 

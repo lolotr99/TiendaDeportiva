@@ -5,10 +5,21 @@
     </div>
   </div>
   <div class=" row form">
-    <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)" class="register-form">
-      <input ngModel #username="ngModel" name="username" type="text" id="username" placeholder="username">
-      <input ngModel #password="ngModel" name="password" type="password" id="password" placeholder="password">
+    <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)" class="register-form" id="form1">
       <input ngModel #email="ngModel" name="email" type="email" id="email" placeholder="email">
+      <input ngModel #password="ngModel" name="password" type="password" id="password" placeholder="password">
+      <input name="password2" type="password" id="password2" placeholder="confirm password">
+      <span id="spanOcultoPass" style="display: none;"></span>
+      <input type="text" id="nombreCompleto" value="" placeholder="Nombre Completo">
+      <select id="pais">
+        <option value="Alemania">Alemania</option>
+        <option value="España">España</option>
+        <option value="Francia">Francia</option>
+        <option value="Italia">Italia</option>
+        <option value="Inglaterra">Inglaterra</option>
+      </select>
+      <input type="radio" name="sex" value="Hombre">Hombre
+      <input type="radio" name="sex" value="Mujer">Mujer
       <button type="submit">Registrar</button>
       <p class="message">¿Ya estás registrado? <a href="/login">Entra aquí</a></p>
     </form>
