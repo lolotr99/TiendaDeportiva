@@ -53,9 +53,18 @@ export class AuthService {
 
   insertUserData(userCredential: firebase.auth.UserCredential) {
     //recoger sexo del formulario
+    var sexo;
+    if($('#hombre').is(":checked")) {
+      sexo = "Hombre";
+    } else {
+      sexo = "Mujer";
+    }
     return this.db.doc(`Usuarios/${userCredential.user.uid}`).set({
       email: this.newUser.email,
-      
+      firstName: $("#firstName").val(),
+      lastName: $("#lastName").val(),
+      sexo: sexo,
+      pais: $('#pais').val()
     })
   }
 

@@ -1,27 +1,57 @@
-<div class="login-page">
-  <div class="row" *ngIf="authError">
+<div class="row" *ngIf="authError">
     <div class="col-12 alert alert-danger">
       {{ authError?.message }}
     </div>
-  </div>
-  <div class=" row form">
-    <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)" class="register-form" id="form1">
-      <input ngModel #email="ngModel" name="email" type="email" id="email" placeholder="email">
-      <input ngModel #password="ngModel" name="password" type="password" id="password" placeholder="password">
-      <input name="password2" type="password" id="password2" placeholder="confirm password">
-      <span id="spanOcultoPass" style="display: none;"></span>
-      <input type="text" id="nombreCompleto" value="" placeholder="Nombre Completo">
-      <select id="pais">
-        <option value="Alemania">Alemania</option>
-        <option value="España">España</option>
-        <option value="Francia">Francia</option>
-        <option value="Italia">Italia</option>
-        <option value="Inglaterra">Inglaterra</option>
-      </select>
-      <input type="radio" name="sex" value="Hombre">Hombre
-      <input type="radio" name="sex" value="Mujer">Mujer
-      <button type="submit">Registrar</button>
-      <p class="message">¿Ya estás registrado? <a href="/login">Entra aquí</a></p>
-    </form>
+</div>
+
+<div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>Registro de usuarios</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="">
+        <form id="form" #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)" ngNativeValidate>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <input ngModel #email="ngModel" name="email" type="email" id="email" placeholder="Email" required/>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            <input ngModel #password="ngModel" name="password" type="password" id="password" placeholder="password" required>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            <input type="password" name="password2" id="password2" placeholder="Re-type Password" required />
+          </div>
+          <div id="spanOcultoPass" style="display: none;" class="invalid-feedback">Las contraseñas no coinciden</div>
+          <div class="row clearfix">
+            <div class="col_half">
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" name="name" id="firstName" placeholder="First Name" required />
+              </div>
+            </div>
+            <div class="col_half">
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" name="name" placeholder="Last Name" required id="lastName"/>
+              </div>
+            </div>
+          </div>
+            	<div class="input_field radio_option">
+              <input type="radio" name="hombre" id="hombre" checked>
+              <label for="hombre">Hombre</label>
+              <input type="radio" name="mujer" id="mujer">
+              <label for="mujer">Mujer</label>
+              </div>
+              <div class="input_field select_option">
+                <select id="pais">
+                  <option value="Alemania">Alemania</option>
+                  <option value="España">España</option>
+                  <option value="Francia">Francia</option>
+                  <option value="Inglaterra">Inglaterra</option>
+                  <option value="Italia">Italia</option>
+                </select>
+              </div>
+          <button class="button" type="submit" ng-disabled="form.$invalid">Registrar</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

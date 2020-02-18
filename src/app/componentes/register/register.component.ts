@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 
+declare const validate: any;
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,12 +13,14 @@ export class RegisterComponent implements OnInit {
 
   authError: any;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService) {
+  }
 
   ngOnInit() {
     this.auth.eventAuthError$.subscribe( data => {
       this.authError = data;
     })
+    validate();
   }
 
   createUser(frm) {
