@@ -1,4 +1,4 @@
-function validate() {
+function validarPassword() {
     //variables
     var pass1 = $('#password');
     var pass2 = $('#password2');

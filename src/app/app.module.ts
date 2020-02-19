@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { DetalleArticuloComponent } from './componentes/detalle-articulo/detalle-articulo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     LoginComponent,
     NotFoundComponent,
     PrivadoComponent,
-    RegisterComponent
+    RegisterComponent,
+    DetalleArticuloComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,9 @@
-<div class="row" *ngIf="authError">
+<div class="form_wrapper">
+  <div class="row" *ngIf="authError">
     <div class="col-12 alert alert-danger">
       {{ authError?.message }}
     </div>
-</div>
-
-<div class="form_wrapper">
+  </div>
   <div class="form_container">
     <div class="title_container">
       <h2>Registro de usuarios</h2>
@@ -49,7 +48,7 @@
                   <option value="Italia">Italia</option>
                 </select>
               </div>
-          <button class="button" type="submit" ng-disabled="form.$invalid">Registrar</button>
+          <input class="button" type="submit" ng-disabled="form.$invalid" value="Registrar"/>
         </form>
       </div>
     </div>

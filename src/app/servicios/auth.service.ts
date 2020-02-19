@@ -32,18 +32,20 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/privado']);
         }
       })
   }
 
   createUser(user) {
+    console.log(user);
     this.afAuth.auth.createUserWithEmailAndPassword( user.email, user.password)
       .then( userCredential => {
         this.newUser = user;
         this.insertUserData(userCredential)
           .then(() => {
-            this.router.navigate(['/']);
+            console.log(userCredential);
+            this.router.navigate(['/privado']);
           });
       })
       .catch( error => {
