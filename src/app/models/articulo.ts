@@ -4,4 +4,5 @@ export interface ArticuloInterface {
     marca?: string;
     precio?: number;
     descripcion?:string;
+    imagenArticulo?:string;
 }

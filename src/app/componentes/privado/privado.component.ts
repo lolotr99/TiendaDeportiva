@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DataApiService } from 'src/app/servicios/data-api.service';
+import { ArticuloInterface } from 'src/app/models/articulo';
+
+
 
 @Component({
   selector: 'app-privado',
@@ -9,13 +12,18 @@ import { DataApiService } from 'src/app/servicios/data-api.service';
 export class PrivadoComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
-  public articulos = [];
-  public articulo = "";
+  private articulos: ArticuloInterface[];
+
+
   ngOnInit() {
-    this.dataApi.getArticulos().subscribe(articulos => {
-      console.log("Articulos", articulos);
-      this.articulos = articulos;
-    })
+    this.getListArticulos();
   }
 
+  
+  getListArticulos() {
+    this.dataApi.getArticulos()
+      .subscribe(articulos => {
+        this.articulos = articulos;
+      });
+  }
 }

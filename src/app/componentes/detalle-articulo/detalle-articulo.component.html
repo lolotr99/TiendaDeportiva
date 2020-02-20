@@ -5,9 +5,11 @@
         <div class="col-sm-8">
             <h3>{{articulo.nombre}}</h3>
             <h5>Marca: {{articulo.marca}}</h5>
+            <h5>Precio: {{articulo.precio}}</h5>
             <p><span class="font-weight-bold">Descripcion: </span>{{articulo.descripcion}}</p>
-            <a class="btn btn-danger">Eliminar articulo</a>
-            <a class="btn btn-warning"><i class="fas fa-pencil"></i>Editar articulo</a>
+            <a class="btn btn-danger" (click)="onDeleteArticulo(articulo.id)">Eliminar articulo</a>
+            <a class="btn btn-warning" (click)="onPreUpdateArticulo(articulo)" data-toggle="modal" data-target="#modalArticulo" ><i class="fas fa-pencil"></i>Editar articulo</a>
             <a href="#" routerLink="/privado" class="btn btn-default" style="border-color: black;">Volver al listado de articulos</a>
         </div>
     </div>
+<app-modal></app-modal>

@@ -18,6 +18,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DetalleArticuloComponent } from './componentes/detalle-articulo/detalle-articulo.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ModalComponent } from './componentes/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { DetalleArticuloComponent } from './componentes/detalle-articulo/detalle
     NotFoundComponent,
     PrivadoComponent,
     RegisterComponent,
-    DetalleArticuloComponent
+    DetalleArticuloComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { DetalleArticuloComponent } from './componentes/detalle-articulo/detalle
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
