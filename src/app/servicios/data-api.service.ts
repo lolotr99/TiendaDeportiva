@@ -16,7 +16,8 @@ export class DataApiService {
  
   private articuloCollection: AngularFirestoreCollection<ArticuloInterface>;
   private articulos: Observable<ArticuloInterface[]>;
-
+  private articuloDoc : AngularFirestoreDocument<ArticuloInterface>;
+  private articulo : Observable<ArticuloInterface>;
 
   getArticulos() {
     return this.articulos = this.articuloCollection.snapshotChanges()
@@ -28,6 +29,20 @@ export class DataApiService {
       });
     }));
   }
+
+  getOneArticulo(idArticulo : string) {
+    this.articuloDoc = this.afs.doc<ArticuloInterface>(`Articulos/${idArticulo}`);
+    return this.articulo = this.articuloDoc.snapshotChanges().pipe(map(action => {
+      if (action.payload.exists === false) {
+        return null;
+      } else {
+        const data = action.payload.data() as ArticuloInterface;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
+
   addArticulo() {}
   updateArticulo(){}
   deleteArticulo() {}

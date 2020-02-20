@@ -1,6 +1,7 @@
 export interface ArticuloInterface {
-  id: string;
+    id?: string;
     nombre?: string;
     marca?: string;
     precio?: number;
+    descripcion?:string;
 }
