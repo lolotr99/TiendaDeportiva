@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
@@ -10,9 +9,7 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { PrivadoComponent } from './componentes/privado/privado.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { environment } from 'src/environments/environment';
-
 import { FormsModule } from '@angular/forms';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -20,6 +17,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { DetalleArticuloComponent } from './componentes/detalle-articulo/detalle-articulo.component';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ModalComponent } from './componentes/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EquiposService } from './servicios/equipos.service';
+
 
 @NgModule({
   declarations: [
@@ -40,9 +40,10 @@ import { ModalComponent } from './componentes/modal/modal.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, EquiposService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
