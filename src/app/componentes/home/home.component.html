@@ -1,9 +1,7 @@
 <div align="center" class="row mt-5">
     <h1>Clasificación de LaLiga Santander en la Jornada 25 </h1>
 
-    <input type="text" class="form-control" placeholder="buscador de equipo" name="buscador" id="buscador">
-
-    <table id="equipobuscado" style="display: none;" class='table table-hover'>
+    <table class='table table-hover'>
         <tr style='color:Skyblue'>
             <td>Posicion</td>
             <td>Equipo</td>
@@ -18,48 +16,17 @@
             <td>Entrenador</td>
             <td>Máximo Goleador</td>
         </tr>
-        <tr style='color: red;' *ngFor="let equipo of equipos">
-            <td>#</td>
+        <tr style='color: red;' *ngFor="let equipo of equipos; index as i">
+            <td>{{i+1}}</td>
             <td> {{equipo.equipo }} </td>
             <td> {{equipo.puntos }} </td>
-            <td> {{equipo.partidosGanados }} +  {{equipo.partidosEmpatados }} + {{equipo.partidosPerdidos }}</td>
+            <td> {{equipo.partidosJugados }}</td>
             <td> {{equipo.partidosGanados }} </td>
             <td> {{equipo.partidosEmpatados }} </td>
             <td> {{equipo.partidosPerdidos }} </td>
             <td> {{equipo.golesFavor }} </td>
             <td> {{equipo.golesContra }} </td>
-            <td> {{equipo.golesFavor }} - {{equipo.golesContra}} </td>
-            <td> {{equipo.entrenador }} </td>
-            <td> {{equipo.maximoGoleador }} </td>
-          </tr>
-    </table>
-
-    <table id="tabla" class='table table-hover'>
-        <tr style='color:Skyblue'>
-            <td>Posicion</td>
-            <td>Equipo</td>
-            <td>Pts</td>
-            <td>PJ</td>
-            <td>PG</td>
-            <td>PE</td>
-            <td>PP</td>
-            <td>GF</td>
-            <td>GC</td>
-            <td>DG</td>
-            <td>Entrenador</td>
-            <td>Máximo Goleador</td>
-        </tr>
-        <tr style='color: red;' *ngFor="let equipo of equipos">
-            <td>#</td>
-            <td> {{equipo.equipo }} </td>
-            <td> {{equipo.puntos }} </td>
-            <td> {{equipo.partidosGanados }} +  {{equipo.partidosEmpatados }} + {{equipo.partidosPerdidos }}</td>
-            <td> {{equipo.partidosGanados }} </td>
-            <td> {{equipo.partidosEmpatados }} </td>
-            <td> {{equipo.partidosPerdidos }} </td>
-            <td> {{equipo.golesFavor }} </td>
-            <td> {{equipo.golesContra }} </td>
-            <td> {{equipo.golesFavor }} - {{equipo.golesContra}} </td>
+            <td> {{equipo.diferenciaGoles }}</td>
             <td> {{equipo.entrenador }} </td>
             <td> {{equipo.maximoGoleador }} </td>
           </tr>

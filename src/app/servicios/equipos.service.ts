@@ -14,8 +14,4 @@ export class EquiposService {
   obtenerEquipos(){
     return this.http.get<EquipoInterface[]>(`${this.URL}ObtenerEquipos.php`);
   }
-
-  seleccionarEquipos(equipo: string) {
-    return this.http.get(`${this.URL}ObtenerUnEquipo.php?equipo=${equipo}`);
-  }
 }
