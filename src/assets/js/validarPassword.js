@@ -23,7 +23,7 @@ function validarPassword() {
         coincidePassword();
     });
 
-    $("#form").submit(function () {
+    $("#formArticulo").submit(function () {
         if (contrasena)
             return true;
         else

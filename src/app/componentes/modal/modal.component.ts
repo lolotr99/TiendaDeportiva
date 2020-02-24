@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 
+declare const validarArticulo: any;
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -32,6 +34,7 @@ export class ModalComponent implements OnInit {
 
 
   ngOnInit() {
+    validarArticulo();
   }
 
   onSaveArticulo(articuloForm: NgForm): void {

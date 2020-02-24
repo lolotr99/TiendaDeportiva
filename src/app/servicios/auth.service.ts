@@ -61,12 +61,19 @@ export class AuthService {
     } else {
       sexo = "Mujer";
     }
+
+    var aficiones = "";
+    if($("#musica").prop("checked")) aficiones += " Música";
+    if($("#deporte").prop("checked")) aficiones += " Deporte";
+    if($("#musica").prop("checked")) aficiones += "  Pintar";
+
     return this.db.doc(`Usuarios/${userCredential.user.uid}`).set({
       email: this.newUser.email,
       firstName: $("#firstName").val(),
       lastName: $("#lastName").val(),
       sexo: sexo,
-      pais: $('#pais').val()
+      pais: $('#pais').val(),
+      aficiones: aficiones
     })
   }
 
